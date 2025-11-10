@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>명신여고 인터랙티브 허브</title>
+    <!-- Tailwind CSS 로드 --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Inter 폰트를 기본으로 설정 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff; /* Very light sky blue background */
+            /* 은은한 그라데이션 배경 추가 */
+            background-image: linear-gradient(to bottom, #dbeafe, #eff6ff);
+        }
+        
+        /* 텍스트 드롭 섀도우를 위한 사용자 정의 CSS */
+        .drop-shadow-lg {
+             filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.15));
+        }
+
+        /* 스크롤 다운 애니메이션 */
+        @keyframes bounce-scroll {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .scroll-down {
+            animation: bounce-scroll 2s infinite;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+
+    <!-- 메인 컨테이너 --><div class="w-full max-w-5xl mx-auto px-4 sm:px-8">
+        
+        <!-- 큰 제목 섹션 (min-h-screen으로 제목을 화면 중앙보다 아래로 배치) --><header class="text-center min-h-screen flex flex-col justify-center mb-0 relative">
+            <div class="py-16">
+                <!-- 텍스트 섀도우를 적용하여 허전함을 없애고 제목을 강조 --><h1 class="text-7xl sm:text-8xl font-extrabold text-blue-800 tracking-tighter leading-none drop-shadow-lg" style="text-shadow: 2px 2px 0px #93c5fd;">
+                    명신여고
+                </h1>
+                <p class="text-2xl sm:text-3xl mt-4 text-blue-600 font-medium">
+                    꿈과 희망을 키우는 배움의 터전
+                </p>
+                <!-- 장식 요소 추가: 얇은 선 --><div class="w-40 h-1 bg-sky-400 mx-auto mt-8 rounded-full shadow-lg"></div>
+            </div>
+
+            <!-- 스크롤 다운 유도 화살표 --><div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-blue-500 scroll-down">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </header>
+        
+        <!-- 명신여고 소개 섹션 (마진을 크게 늘려 스크롤 후 보임) --><section class="mt-24 mb-32 text-center p-4 sm:p-6 bg-white rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-700 mb-4">학교 소개</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                명신여자고등학교는 학생들이 창의적이고 주도적인 인재로 성장하도록 돕는 교육 철학을 지향합니다. 
+                다채로운 동아리 활동과 심화 학습 프로그램을 통해 학생들이 자신의 잠재력을 발견하고, 
+                서로 협력하며 성장하는 아름다운 배움의 문화를 만들어가고 있습니다.
+            </p>
+            <!-- 사용자 요청: 소개글 밑에 엔터 2번 (공백) 추가 --><div class="h-8"></div> 
+        </section>
+        
+        <!-- 챗봇 섹션: MS 안내봇으로 이름 변경 및 간격 증가 --><section class="mb-24 text-center">
+            <h2 class="text-3xl font-extrabold text-blue-700 mb-6">
+                <span class="border-b-4 border-sky-500 pb-1">MS 안내봇</span>
+            </h2>
+            <div class="max-w-xl mx-auto">
+                <!-- 챗봇 카드 - 흰색 배경, 검정색 텍스트로 대비 강화 -->
+                <!-- 요청: href를 실제 링크로 변경하고 target="_blank" 추가, onclick 제거 --><a href="https://schoolrules11.streamlit.app/" target="_blank" class="chatbot-card group w-full">
+                    <!-- 아이콘 색상 변경 --><div class="text-4xl mb-3 text-blue-600 transition-transform duration-300 group-hover:scale-105" style="animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;">💬</div>
+                    <!-- 제목 색상 변경 --><h2 class="text-2xl font-bold mb-2 text-blue-800">MS 안내봇</h2>
+                    <!-- 설명 텍스트를 검정색 계열로 변경 --><p class="text-gray-800">무엇이든 물어보세요. AI가 명신여고에 대해 설명해 줄 거에요!</p>
+                    <!-- 버튼 텍스트 변경 --><span class="mt-4 inline-block px-6 py-2 text-base font-semibold rounded-full bg-blue-500 text-white transition duration-300 group-hover:bg-blue-600 shadow-md">
+                        물어보러 가기
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 게임 섹션 컨테이너: 심플화 및 공백 유지 --><div class="mt-64 mb-32">
+            <!-- 게임 바로가기 카드 제목 --><h2 class="text-3xl sm:text-4xl font-extrabold text-blue-700 text-center mb-12">
+                <span class="border-b-4 border-blue-500 pb-1">게임 바로가기</span>
+            </h2>
+
+            <!-- 인터랙티브 카드 섹션 (게임 3개, 3열 레이아웃) --><main class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4">
+
+                <!-- 카드 1: 우주 종족 설계 시뮬레이터 (배경 검정, 텍스트 흰색/회색, rounded-full 적용) --><a href="#game1_link" class="interactive-card group bg-gray-800 hover:bg-gray-700 rounded-full" onclick="alertLink('우주 종족 설계 시뮬레이터')">
+                    <!-- 아이콘 왼쪽으로 이동 --><div class="text-4xl mb-3 w-full text-left pl-4 transition-transform duration-300 group-hover:scale-110">🚀</div>
+                    <!-- 텍스트 들여쓰기 적용 (pl-2로 변경) --><div class="text-center pl-2">
+                        <h2 class="text-lg font-bold mb-2 text-white">우주 종족 설계 시뮬레이터</h2>
+                        <p class="text-gray-200 text-sm">여러분만의 외계인을 만들어주세요!</p>
+                        <!-- 요청: 엔터 추가 --><div class="h-4"></div>
+                    </div>
+                </a>
+
+                <!-- 카드 2: 수험생 시뮬레이션 (배경 흰색, 텍스트 검정색 계열, rounded-full 적용) --><a href="#game2_link" class="interactive-card group bg-white hover:bg-gray-100 rounded-full" onclick="alertLink('수험생 시뮬레이션')">
+                    <!-- 아이콘 왼쪽으로 이동 --><div class="text-4xl mb-3 w-full text-left pl-4 transition-transform duration-300 group-hover:rotate-6">📚</div>
+                    <!-- 텍스트 중앙 정렬 유지 --><div class="text-center">
+                        <h2 class="text-lg font-bold mb-2 text-blue-800">수험생 시뮬레이션</h2>
+                        <p class="text-gray-800 text-sm">공부를 해서 성적을 올린뒤 원하는 학교/학과에 지원하세요!</p>
+                        <!-- 요청: 엔터 추가 --><div class="h-4"></div>
+                    </div>
+                </a>
+                
+                <!-- 카드 3: 분리수거 게임 (배경색 bg-green-900, 텍스트 색상 직접 지정, rounded-full 적용) --><a href="#game3_link" class="interactive-card group bg-green-900 hover:bg-green-800 rounded-full" onclick="alertLink('분리수거 게임')">
+                    <!-- 아이콘 왼쪽으로 이동 (분리수거 이모지로 변경) --><div class="text-4xl mb-3 w-full text-left pl-4 transition-transform duration-300 group-hover:translate-x-1">♻️</div>
+                    <!-- 텍스트 중앙 정렬 유지 --><div class="text-center">
+                        <h2 class="text-lg font-bold mb-2 text-white">분리수거 게임</h2>
+                        <!-- 요청: 앞의 카드들과 같은 폰트 색상(text-gray-200) 적용 및 내용 수정 --><p class="text-gray-200 text-sm">당신도 지구 환경의 히어로가 될 수 있습니다!</p>
+                    </div>
+                </a>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- 링크 안내 모달 (alert() 대신 사용) --><div id="modal-container" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-sm transform transition-all scale-100 duration-300">
+            <h3 class="text-xl font-bold text-blue-700 mb-4" id="modal-title">링크 이동</h3>
+            <p class="text-gray-700 mb-6" id="modal-message"></p>
+            <button id="modal-close-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-300">
+                확인
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        /**
+         * alert() 대신 사용할 모달을 표시하는 함수
+         * @param {string} linkName - 이동할 링크의 이름
+         */
+        function alertLink(linkName) {
+            const modalContainer = document.getElementById('modal-container');
+            const modalMessage = document.getElementById('modal-message');
+            
+            // 실제 링크가 아닌 시뮬레이션임을 사용자에게 안내
+            modalMessage.textContent = `[${linkName}] 페이지로 이동하는 링크입니다. (현재는 시뮬레이션입니다.)`;
+            modalContainer.classList.remove('hidden');
+        }
+
+        // 모달 닫기 버튼 이벤트 리스너
+        document.getElementById('modal-close-button').addEventListener('click', () => {
+            document.getElementById('modal-container').classList.add('hidden');
+        });
+
+        // Tailwind CSS 커스텀 스타일 정의
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#3b82f6', 
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 카드 스타일을 위한 Tailwind 클래스 정의 (반응형 및 푸른 계열 색상) --><style>
+        .interactive-card {
+            /* 기본 스타일: 모든 카드에 적용되는 공통 스타일 */
+            @apply block p-24 sm:p-32 /* Padding 증가: 사각형 아래로 사이즈 늘림 */
+                   shadow-xl /* rounded-full은 인라인으로 적용 */
+                   transform transition duration-300 ease-in-out
+                   hover:shadow-2xl hover:-translate-y-1 
+                   focus:outline-none focus:ring-4 focus:ring-sky-300 
+                   text-center cursor-pointer; /* 텍스트 중앙 정렬 */
+            
+            /* 모바일에서 텍스트 크기 조정 */
+            @apply text-base sm:text-lg;
+        }
+        
+        /* 챗봇 카드를 위한 별도 스타일 (흰색 배경, 검정색 텍스트로 대비 강화) */
+        .chatbot-card {
+            @apply block p-6 sm:p-8 
+                   bg-white text-gray-800 
+                   rounded-2xl shadow-xl border-4 border-blue-500 /* 테두리 유지 */
+                   transform transition duration-300 ease-in-out
+                   hover:bg-blue-50 hover:shadow-2xl hover:-translate-y-1 
+                   focus:outline-none focus:ring-4 focus:ring-blue-300 
+                   text-center cursor-pointer;
+            
+            /* 모바일에서 텍스트 크기 조정 */
+            @apply text-base sm:text-lg;
+        }
+
+        /* 텍스트 색상 오버라이드 및 정리 */
+        /* 기본 interactive-card의 h2는 흰색을 따르지만, 개별 카드의 배경색에 따라 덮어쓰기 됨 */
+        .interactive-card h2 {
+            @apply text-white; 
+        }
+
+        /* 특정 게임 카드에 대한 텍스트 색상 오버라이드 */
+        /* 흰색 배경 카드 (수험생 시뮬레이션) */
+        .interactive-card.bg-white h2 {
+            @apply text-blue-800;
+        }
+        .interactive-card.bg-white p {
+            @apply text-gray-800;
+        }
+        
+        /* 어두운 배경 카드 (우주 종족 시뮬레이터) */
+        .interactive-card.bg-gray-800 p {
+            @apply text-gray-200; 
+        }
+
+        /* 가장 어두운 녹색 배경 카드 (분리수거 게임) - 이제 p 태그에 직접 text-gray-200을 적용했습니다. */
+        .interactive-card.bg-green-900 h2 {
+            @apply text-white;
+        }
+        /* 기존의 text-green-200 p 오버라이드는 제거했습니다. */
+
+        .chatbot-card h2 {
+            @apply text-blue-800;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+</body>
+</html>
